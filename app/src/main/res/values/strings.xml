@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RecyclerView DataBinding DiffUtil</string>
+    <string name="country_flag">Country Flag</string>
+</resources>
