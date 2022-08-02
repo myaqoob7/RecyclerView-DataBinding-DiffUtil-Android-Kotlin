@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.orbitalsonic.recyclerviewdatabindingdiffutil.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun createRecyclerView() {
         mAdapter = AdapterCountry()
         binding.recyclerview.adapter = mAdapter
-        binding.recyclerview.layoutManager = GridLayoutManager(this, 1)
+        binding.recyclerview.layoutManager = LinearLayoutManager(this)
         submitList(someData())
 
         mAdapter.setOnItemClickListener(object : OnCountryItemClickListener {
