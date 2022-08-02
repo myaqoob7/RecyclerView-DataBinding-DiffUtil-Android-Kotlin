@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.orbitalsonic.recyclerviewdatabindingdiffutil.R
 import com.orbitalsonic.recyclerviewdatabindingdiffutil.databinding.ItemCountryBinding
 
 class AdapterCountry :
