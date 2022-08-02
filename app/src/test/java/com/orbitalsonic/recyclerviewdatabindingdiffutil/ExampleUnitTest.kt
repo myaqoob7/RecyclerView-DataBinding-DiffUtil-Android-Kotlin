@@ -1,4 +1,4 @@
-package com.zekab.recyclerviewdatabindingdiffutil
+package com.orbitalsonic.recyclerviewdatabindingdiffutil
 
 import org.junit.Test
 

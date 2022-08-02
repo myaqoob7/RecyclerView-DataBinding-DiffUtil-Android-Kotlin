@@ -1,4 +1,4 @@
-package com.zekab.recyclerviewdatabindingdiffutil
+package com.orbitalsonic.recyclerviewdatabindingdiffutil
 
 interface OnCountryItemClickListener {
     fun onItemClick(position: Int)

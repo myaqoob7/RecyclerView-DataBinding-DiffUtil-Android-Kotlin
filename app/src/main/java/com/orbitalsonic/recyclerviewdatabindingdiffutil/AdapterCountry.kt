@@ -1,4 +1,4 @@
-package com.zekab.recyclerviewdatabindingdiffutil
+package com.orbitalsonic.recyclerviewdatabindingdiffutil
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.zekab.recyclerviewdatabindingdiffutil.databinding.ItemCountryBinding
+import com.orbitalsonic.recyclerviewdatabindingdiffutil.R
+import com.orbitalsonic.recyclerviewdatabindingdiffutil.databinding.ItemCountryBinding
 
 class AdapterCountry :
     ListAdapter<CountryItem, AdapterCountry.CountryViewHolder>(DATA_COMPARATOR) {
@@ -19,7 +20,8 @@ class AdapterCountry :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding:ItemCountryBinding = DataBindingUtil.inflate(layoutInflater,R.layout.item_country,parent,false)
+        val binding: ItemCountryBinding = DataBindingUtil.inflate(layoutInflater,
+            R.layout.item_country,parent,false)
         return CountryViewHolder(binding, mListener!!)
 
     }

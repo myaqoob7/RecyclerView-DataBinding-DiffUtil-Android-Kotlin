@@ -1,11 +1,11 @@
-package com.zekab.recyclerviewdatabindingdiffutil
+package com.orbitalsonic.recyclerviewdatabindingdiffutil
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import com.zekab.recyclerviewdatabindingdiffutil.databinding.ActivityMainBinding
+import com.orbitalsonic.recyclerviewdatabindingdiffutil.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,16 +14,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         createRecyclerView()
+
+        binding.btnAdd.setOnClickListener {
+            submitList(fullData())
+        }
     }
 
     private fun createRecyclerView() {
         mAdapter = AdapterCountry()
         binding.recyclerview.adapter = mAdapter
         binding.recyclerview.layoutManager = GridLayoutManager(this, 1)
-        mAdapter.submitList(dataProvider())
+        submitList(someData())
 
         mAdapter.setOnItemClickListener(object : OnCountryItemClickListener {
             override fun onItemClick(position: Int) {
@@ -34,7 +38,18 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun dataProvider():ArrayList<CountryItem>{
+    private fun someData():ArrayList<CountryItem>{
+        val mList:ArrayList<CountryItem> = ArrayList()
+        mList.add(CountryItem("+61","Australia",R.drawable.australia_flag))
+        mList.add(CountryItem("+55","Brazil",R.drawable.brazil_flag))
+        mList.add(CountryItem("+1","Canada",R.drawable.canada_flag))
+        mList.add(CountryItem("+86","China",R.drawable.china_flag))
+
+        return mList
+
+    }
+
+    private fun fullData():ArrayList<CountryItem>{
         val mList:ArrayList<CountryItem> = ArrayList()
         mList.add(CountryItem("+61","Australia",R.drawable.australia_flag))
         mList.add(CountryItem("+55","Brazil",R.drawable.brazil_flag))
@@ -56,6 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         return mList
 
+    }
+
+    private fun submitList(mList: List<CountryItem>){
+        mAdapter.submitList(mList)
     }
 
     private fun showMessage(message:String){
